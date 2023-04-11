@@ -1,11 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import {
+        Card, 
+        Section
+       } from './index'
 
 function App() {
 
   return (
-    <h1>Weather App</h1>
+    <>
+      <Section>
+      </Section>
+    </>
   )
 }
 
 export default App
+{/* <Card  />   */}

@@ -5,6 +5,12 @@
 // @use "../utils/mixins" as m;
 
     /* base */
-    @forward 'base/base';
-    @forward 'base/typography';
+    @forward 'base/base.scss';
+    @forward 'base/typography.scss';
+
+    /* components */
+    @forward 'components/cards.scss';
+
+    /* layout */
+    @forward 'layout/sections.scss';
 

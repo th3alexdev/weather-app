@@ -51,5 +51,5 @@ const getCoords = async(cityName) => { // Función para obtener las coordenadas 
   
   }
   
-  import { getCoords, getWeather } from "./weatherAPI";
+  export { getCoords, getWeather };
   

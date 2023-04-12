@@ -1,3 +1,23 @@
-// $theme-default: (
+$theme-default: (
+    /* backgrunds */
+    'bg-color': #e8e9ea,
+    'bg-card': #fff,
+    'yellow-contrast': #ffde4a,
+    'blue-contrast': #4050d2,
 
-// );
+    /* text */
+    'text-color': #222,
+
+    /* developer's info card */
+    'dev-card__bg-color': #dff297
+);
+
+$properties: (
+    "main-font": "'Inter', sans-serif",
+    "titles-font": "'Space Grotesk', sans-serif",
+    "opacity": opacity(45%),
+    "padding": 25px 20px,
+    "border-radius": 20px
+);
+
+

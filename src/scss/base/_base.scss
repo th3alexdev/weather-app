@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
 
     font-family: f.getProperty('main-font');
-    color: #fff;
+    color: f.getColor('text-color');
 }
 
 a {

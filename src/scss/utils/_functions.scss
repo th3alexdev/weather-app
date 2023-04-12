@@ -1,0 +1,9 @@
+@use '../utils/variables' as v;
+
+@function getColor($color-name) {
+    @return var(--color-#{$color-name});
+}
+
+@function getProperty($property) {
+    @return var(--#{$property});
+}

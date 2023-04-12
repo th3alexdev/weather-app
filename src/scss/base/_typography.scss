@@ -1,0 +1,38 @@
+@use "../utils/variables" as v;
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+
+
+.title {
+    display: block;
+    
+    &--principal {
+        margin-bottom: 25px;
+        color: f.getColor('text-color-contrast');
+        font-family: f.getProperty('titles-font');
+    }
+
+    &--secondary {
+        margin-bottom: 25px;
+        color: f.getColor('text-color');
+
+        font: {
+            family: f.getProperty('main-font');
+            weight: 400;
+            size: 1rem;
+        }
+
+        filter: f.getProperty('opacity');
+    }
+}
+
+.text {
+
+    &--data {
+        font-size: 3rem;
+    }
+}
+
+// .sub {
+
+// }

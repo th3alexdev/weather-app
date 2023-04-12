@@ -1,4 +1,4 @@
-const API_KEY = import.meta.env.VITE_API_KEY; // Developer API OpenWeatherMap Key
+const API_KEY = import.meta.env.VITE_API_KEY_OPENWEATHERMAP; // Developer API OpenWeatherMap Key
 
 const getCoords = async(cityName) => { // Función para obtener las coordenadas de una ciudad
                                        // a partir de su nombre.

@@ -2,3 +2,9 @@
 @use "../utils/functions" as f;
 @use "../utils/mixins" as m;
 
+.main {
+    width: 100%;
+    height: 100vh;
+    padding: 45px 55px;
+    background-color: #222;
+}

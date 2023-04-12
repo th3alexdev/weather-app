@@ -3,13 +3,17 @@ import {
         Section
        } from './index'
 
+import "./scss/styles.scss"
+
 function App() {
 
   return (
-    <>
-      <Section>
+    <main className='main'>
+      
+      <Section title="Today's Highlights">
       </Section>
-    </>
+      
+    </main>
   )
 }
 

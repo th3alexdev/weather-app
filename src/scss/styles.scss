@@ -13,7 +13,9 @@
     @forward 'components/forms.scss';
     @forward 'components/icons.scss';
     @forward 'components/img.scss';
+    @forward 'components/shapes.scss';
 
     /* layout */
+    @forward 'layout/header.scss';
     @forward 'layout/main.scss';
     @forward 'layout/sections.scss';

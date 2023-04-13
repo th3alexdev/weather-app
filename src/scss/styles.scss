@@ -10,6 +10,9 @@
 
     /* components */
     @forward 'components/cards.scss';
+    @forward 'components/forms.scss';
+    @forward 'components/icons.scss';
+    @forward 'components/img.scss';
 
     /* layout */
     @forward 'layout/main.scss';

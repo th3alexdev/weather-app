@@ -9,6 +9,7 @@
     @forward 'base/typography.scss';
 
     /* components */
+    @forward 'components/btns.scss';
     @forward 'components/cards.scss';
     @forward 'components/forms.scss';
     @forward 'components/icons.scss';

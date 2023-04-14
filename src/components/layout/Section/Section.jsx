@@ -3,7 +3,7 @@ import Card from "../../Card/Card";
 
 function Section({ title, className, children}) {
   return (
-    <section className="today-highlight">
+    <section className={ className }>
       {
         title ? <h1 className="title title--principal">{ title }</h1> : null
       }

@@ -1,0 +1,55 @@
+
+@use "../utils/variables" as v;
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 10px 12px;
+    font-family: f.getProperty('titles-font');
+    display: flex;
+    justify-content: space-between;
+
+    &__btns {
+        display: flex;
+        gap: 7px;
+        width: max-content;
+    }
+
+    &__greeting {
+        display: flex;
+        gap: 12px;
+
+        // background-color: rgba($color: #0f0, $alpha: 0.3);
+    }
+
+    &-text-principal {
+        font-weight: 700;
+    }
+
+    &-text-secondary {
+        width: max-content;
+        font-weight: 400;
+        font-size: 2rem;
+    }
+}
+
+.name-container {
+    width: max-content;
+}
+
+.greeting {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50px;
+        width: 40px;
+        height: 40px;
+        background: url('/src/assets/img/waving-hand-emoji.png');
+        background-size: contain;
+    }
+}

@@ -10,3 +10,16 @@
     -webkit-user-drag: none;
     cursor: pointer;
 }
+
+.btn {
+    cursor: pointer;
+    width: 41px;
+    height: 100%;
+    border-radius: 50%;
+    background-color: f.getColor('bg-card');
+
+    &--header {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+}

@@ -1,50 +1,49 @@
 import {
-        Card, 
-        Section,
-        WeatherCard,
-        TodayHighlightsCard,
-        TodayForecastCard        
-       } from './index'
+          Header, 
+          Section,
+          WeatherCard,
+          SearchCard,
+          TodayHighlightsCard,
+          TodayForecastCard        
+        } from './index'
 
 import "./scss/styles.scss"
+
 
 function App() {
 
   return (
-    <main className='main'>
+    <>
+      <main className='main'>
+        <Header className="header" />
 
-      <Section>
-        <WeatherCard className="card card--principal"/>
-        <p>main section</p>
-      </Section>
+        <Section className="weather main-section">
+          <WeatherCard/>
+        </Section>
 
-      <Section>
-        <p>search section</p>
-      </Section>
+        <Section className="search main-section">
+          <SearchCard/>
+        </Section>
 
-      <Section title="Today's Highlights">
-        <p>highlights summary</p>
-      </Section>
-
-      <Section title="Today's Forecast">
-        <p>forecast summary</p>
-      </Section>
-
-      <Section>
-        <p> other cards + devcard</p>
-      </Section>
-
-    </main>
+        <Section className="today-higlight main-section">
+          <TodayHighlightsCard />
+        </Section>
+      </main>
+    </>
   )
 }
 
 export default App
 
-{/* <Card  />   */}
-      
-{/* <Section 
-title="Today's Highlights"
->
-</Section>
-<Section title="Today's Forecast">
-</Section> */}
+
+// <Section className="weather main-section ">
+// <WeatherCard />
+// </Section>
+
+// {/* <Section className="search main-section ">
+// <SearchCard/>
+// </Section>
+
+// <Section className="today-higlight main-section">
+// <TodayHighlightsCard />
+// </Section> */}

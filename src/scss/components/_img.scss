@@ -2,3 +2,20 @@
 @use "../utils/variables" as v;
 @use "../utils/functions" as f;
 @use "../utils/mixins" as m;
+
+.img {
+    -webkit-user-drag: none;
+
+    &--weather {
+        position: absolute;
+        right: 22px;
+        width: 210px;
+    }
+
+    &--location {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

@@ -1,0 +1,12 @@
+
+@use "../../utils/variables" as v;
+@use "../../utils/functions" as f;
+@use "../../utils/mixins" as m;
+
+.today-highlight {
+    width: 40%;
+    max-width: 450px;
+    padding-top: 20px;
+    flex-shrink: 1;
+    color: f.getColor('text-color-contrast');
+}

@@ -1,5 +1,4 @@
 
-
 // @use "../utils/variables" as v;
 // @use "../utils/functions" as f;
 // @use "../utils/mixins" as m;
@@ -14,9 +13,16 @@
     @forward 'components/forms.scss';
     @forward 'components/icons.scss';
     @forward 'components/img.scss';
+    @forward 'components/links.scss';
     @forward 'components/shapes.scss';
 
     /* layout */
     @forward 'layout/header.scss';
     @forward 'layout/main.scss';
     @forward 'layout/sections.scss';
+
+    @forward 'layout/Section/extra';
+    @forward 'layout/Section/search';
+    @forward 'layout/Section/today-forecast';
+    @forward 'layout/Section/today-highlights';
+    @forward 'layout/Section/weather';

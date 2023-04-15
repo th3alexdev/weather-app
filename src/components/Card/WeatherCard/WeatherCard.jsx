@@ -6,7 +6,7 @@ function WeatherCard() {
   return (
     <div className="section-container">  
 
-        <h2 className="title section-container__title">Weather</h2>
+        <h2 className="title subtitle">Weather</h2>
 
         <div>
           <p className="text text--degrees">12 

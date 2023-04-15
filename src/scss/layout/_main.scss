@@ -4,7 +4,35 @@
 
 .main {
     width: 100%;
-    height: 100vh;
+    height: 100vh; // !
+
     padding: 45px 55px;
-    background-color: #222;
+    background-color: f.getColor('bg-color');
+    display: grid;
+    place-items: center ;
+
+}
+
+.main-container {
+    position: relative;
+    padding-top: 65px;
+    max-width: 1350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+
+    outline: 1px solid #000;
+
+}
+
+.secondary-container {
+    width: 57.7%;
+    max-width: 782.31px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
 }

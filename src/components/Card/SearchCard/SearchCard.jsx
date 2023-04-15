@@ -9,6 +9,11 @@ function SearchCard() {
 
   return (
     <div className="section-container section-container--search">
+
+      <div className="date-box">
+        <p className="text">Monday,</p>
+        <p className="text text--time">10:00 AM</p>
+      </div>
       
       <form action="#" className="form">
 

@@ -15,11 +15,13 @@ $theme-default: (
 );
 
 $properties: (
-    "main-font": "'Inter', sans-serif",
-    "titles-font": "'Space Grotesk', sans-serif",
     "opacity": opacity(45%),
     "padding": 25px 20px,
     "border-radius": 20px
 );
 
 
+$fonts: (
+    "main-font": "'Inter', sans-serif",
+    "titles-font": "'Space Grotesk', sans-serif"
+)

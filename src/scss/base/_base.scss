@@ -15,6 +15,11 @@
     @each $name, $property in v.$properties {
         --#{$name}: #{$property};
     }
+
+    @each $name, $font in v.$fonts {
+        --#{$name}: #{$font};
+    }
+
     // @each $name, $color in v.$game-palette {
     //   --color-#{$name}: #{$color};
     // } 
@@ -28,7 +33,7 @@ body {
     margin: 0;
     overflow-x: hidden;
 
-    font-family: f.getProperty('main-font');
+    font-family: f.getFont('main-font');
     color: f.getColor('text-color');
 }
 

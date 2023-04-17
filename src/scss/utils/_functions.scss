@@ -7,3 +7,7 @@
 @function getProperty($property) {
     @return var(--#{$property});
 }
+
+@function getFont($font) {
+    @return var(--#{$font});
+}

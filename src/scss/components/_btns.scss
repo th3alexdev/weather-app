@@ -3,23 +3,39 @@
 @use "../utils/functions" as f;
 @use "../utils/mixins" as m;
 
-.icon {
-    width: 20px;
-    height: 20px;
-    
-    -webkit-user-drag: none;
-    cursor: pointer;
-}
-
 .btn {
     cursor: pointer;
-    width: 41px;
-    height: 100%;
+
     border-radius: 50%;
     background-color: f.getColor('bg-card');
+    transition: background-color .3s;
 
     &--header {
-        font-size: 1.1rem;
-        font-weight: 700;
+        width: 41px;
+        height: 100%;
+        background-color: #000000;
+        color: f.getColor('text-color-contrast');
+        font-family: f.getFont('titles-font');
+
+        font-size: 1rem;
+        font-weight: 100;
+        display: grid;
+        place-items: center;
+
+        &:hover {
+            background-color: #9d9d9d;
+        }
     }
+
+    &--form {
+        width: 30px;
+        height: 30px;
+        padding: 7px 7px;
+
+        &:hover {
+            background-color: #eaeaea;
+        }
+    }
+
+
 }

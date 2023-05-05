@@ -9,33 +9,45 @@
     border-radius: 50%;
     background-color: f.getColor('bg-card');
     transition: background-color .3s;
+}
 
-    &--header {
-        width: 41px;
+.btn-header {
+    color: f.getColor('text-color-contrast');
+
+    font-size: 1rem;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+
+    &--small {
+        width: 46px;
         height: 100%;
-        background-color: #000000;
-        color: f.getColor('text-color-contrast');
+        background-color: f.getColor('bg-card');
+        color: f.getColor('text-color');
         font-family: f.getFont('titles-font');
-
-        font-size: 1rem;
-        font-weight: 100;
-        display: grid;
-        place-items: center;
+        
+        transition: background .3s;
+        will-change: background;
 
         &:hover {
-            background-color: #9d9d9d;
+            background: #ececec;
         }
     }
 
-    &--form {
-        width: 30px;
-        height: 30px;
-        padding: 7px 7px;
+    &--large {
+        width: 205px;
+        color: f.getColor('text-color');
+        background-color: f.getColor('violet-contrast');
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+
+        transition: background .3s;
+        will-change: background;
 
         &:hover {
-            background-color: #eaeaea;
+            background-color: lighten(#b5a2e4,5%);
         }
     }
-
-
 }

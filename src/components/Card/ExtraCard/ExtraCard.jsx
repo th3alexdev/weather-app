@@ -1,6 +1,11 @@
 import React from 'react'
+import getSunriseAndSunset from '../../../utils/convertUnixTimestamp';
 
-function ExtraCard() {
+import windIcon from "../../../assets/icons/wind-solid.svg"
+
+function ExtraCard({ weather }) {
+
+  let windSpeed = weather.wind.speed * 3.6
 
   const icon = "../../../../src/assets/icons/arrow.svg";
   const img = "https://avatars.githubusercontent.com/u/55007470?s=400&u=3ab0176605b70fce349ab80b7cdcfb47e35a6e6e&v=4";
@@ -9,27 +14,29 @@ function ExtraCard() {
     <div className="cards-container cards-container--others">
 
       <div className="other-card other-card--sunrise-sunset">
-
-
           <h2 className="title card-title">Sunrise & Sunset</h2> 
-
-          <div className="other-card__box-time">
+          <div className="card-flex">
               <div className="icon-time-box">
                   <img src={ icon } alt="sunrise icon" className="icon-time"/>
               </div>
-              <p className="other-card-time__text">6:35 AM</p>
+              <p className="other-card-time__text">{ `${getSunriseAndSunset(weather.sys.sunrise)} AM` }</p>
           </div>
-          <div className="other-card__box-time">
+          <div className="card-flex">
                 <div className="icon-time-box">
                     <img src={ icon } alt="sunset icon" className="icon-time icon-time--sunset"/>
                 </div>
-                <p className="other-card-time__text">5:42 PM</p>
+                <p className="other-card-time__text">{ `${getSunriseAndSunset(weather.sys.sunset)} PM` }</p>
           </div>
       </div>
       
       <div className="other-card">
-        <h2 className="title card-title">Air Quality</h2>
-        <p className="text--data">105</p> 
+        <h2 className="title card-title">Wind Speed</h2>
+        <div className="card-flex">
+          <img src={ windIcon } alt="" className="icon icon-card"/>
+          <p className="card-text card-text--large">{ windSpeed.toFixed(1) }
+            <span className="subtext"> km</span>
+          </p> 
+        </div>
       </div>
 
       <div className="other-card other-card--dev">

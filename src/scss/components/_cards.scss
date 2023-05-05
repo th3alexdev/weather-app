@@ -3,43 +3,92 @@
 @use "../utils/mixins" as m;
 @use "../utils/extends" as *;
 
-
-/* today's highlights cards */
-
-.weather-th-cards-container {
+.card-flex {
+    width: max-content;
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 5px;
-    row-gap: 15px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    &--small {
+        gap: 2px;
+    }
 }
 
-.weather-th-card {
+.card {
+    &-title {
+        margin-bottom: 12px;
+        color: f.getColor('text-color');
+        
+        font: {
+            family: f.getFont('main-font');
+            weight: 400;
+            size: .85rem;
+        }
+        
+        filter: f.getProperty('opacity');
+    }
+
+    &-text {
+        position: relative;
+        font-size: 3rem;
+        color: f.getColor('text-color');
+
+        &--large{
+            font-size: 2.5rem;
+        }
+
+        &--secondary {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: f.getColor('gray')
+        }
+    }
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--th { // Today's Highlights
+        column-gap: 5px;
+        row-gap: 15px;
+    }
+
+    &--tf { // Today's Forecast
+        gap: 8px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: auto;
+    }
+
+    &--others { // Extra Cards
+        height: inherit;
+        gap: 20px;
+    }
+}
+
+
+
+.th-card { // Today's Highlight card
+    @extend %card;
+
     height: 130px;
     padding-left: 15px;
 
     flex-shrink: 1;
     flex-basis: 49.3%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    outline: 1px solid #000;
-    @extend %card;
 }
-// ----
 
 
-/* today's forecast cards */
-.weather-fc-card {
+.fc-card { // Today's Forecast
+    @extend %card;
+
     height: 130px;
+    width: 15%;
     max-width: 90px;
     padding: 8px 0;
     
-    background-color: f.getColor('bg-card');
-    border-radius: 10px;
-    outline: 1px solid #000;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,60 +96,91 @@
 
     &__title {
         font-family: f.getProperty('titles-font');
-        font-size: .9rem;
+        font-size: .8rem;
+        filter: opacity(75%);
     }
 
     &__temperature {
+        display: flex;
+        gap: 5px;
         font-size: .9rem;
+    }
+    
+    &-max-temp {
         font-weight: 700;
     }
 
+    &-min-temp {
+        color: f.getColor('gray')
+    }
+
     &__img {
-        width: 50px;
+        width: 55px;
     }
 }
-// ----
 
 
-/* extra cards */
-.extra-cards-container {
-    height: inherit;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+
+
+/* other cards section*/
+
+.other-card {
+    @extend %card;
+
+    width: 31.2%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    &-time__text {
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+
+    &--sunrise-sunset {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Dev card */
+    
 }
 
-.extra-card {
-    width: 31.27%;
-    // height: 100%;
-    
-    outline: 1px solid #000;
-    padding: 22px 25px;
-    background-color: f.getColor('bg-card');
-    border-radius: 10px;
-
-    &-box {
-        position: relative;
-        width: max-content;
-        padding: 2px 5px;
-        margin: 2px 0 20px 0;
-
-        &::after {
-            z-index: 10;
-            position: absolute;
-            content: '';
+.other-card {
+    &-dev{
+        position: absolute;
+        filter: opacity(5%);
+        
+        &--cloud {
+            width: 55px;
+            height: 55px;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            filter: opacity(50%);
         }
+
+        &--sun {
+            width: 65px;
+            height: 65px;
+            bottom: 18px;
+            right: 0;
+        }
+    }
+
+    &-dev__text {
+        font-weight: 700;
     }
 
     &--dev {
         z-index: 20;
         position: relative;
-        background-color: f.getColor('dev-card__bg-color');
+    
+        font-family: f.getFont('titles-font');
+        color: f.getColor('dev-card__text');
+        background-color: red;
+    
+        background: rgb(193,218,94);
+        background: linear-gradient(0deg, rgba(193,218,94,1) 0%, rgba(223,242,151,1) 100%);
     }
 }
+

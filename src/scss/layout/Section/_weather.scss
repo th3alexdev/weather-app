@@ -3,15 +3,27 @@
 @use "../../utils/functions" as f;
 @use "../../utils/mixins" as m;
 
-
 .weather {
+    z-index: 10;
     width: 60%;
     max-width: 754.38px;
     height: 280px;
-    flex-shrink: 1;
 
     padding: f.getProperty('padding');
+    color: f.getColor('text-color-contrast');
+
+
+    border-radius: f.getProperty('border-radius');
+
+    &__properties {
+        width: max-content;
+    }
+
     background: rgb(57,200,245);
     background: linear-gradient(45deg, rgba(57,200,245,1) 0%, rgba(47,144,243,1) 47%);
-    color: f.getColor('text-color-contrast');
+
+    // &--night{
+    //     background: #191970;
+    //     background: linear-gradient(45deg,  #191970 0%, #4B0082 47%);
+    // }
 }

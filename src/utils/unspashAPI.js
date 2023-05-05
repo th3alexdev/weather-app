@@ -1,8 +1,8 @@
 const API_KEY = import.meta.env.VITE_API_KEY_UNSPLASH;
 
-const getImage = async (cityname) =>  {
+const getImage = async (city, coords = null) =>  {
   
-    const appid = ACCESS_KEY
+    const appid = API_KEY
     const options = {
       method: "GET",
       headers: {
@@ -10,10 +10,20 @@ const getImage = async (cityname) =>  {
         'X-Ratelimit-Remaining': 999
       }
     };
+
+    let url;
+
+    if(coords) {
+      let lat = coords.lat;
+      let lon = coords.log;
+      url = `https://api.unsplash.com/photos/random/?client_id=${appid}&count=1&collections=flag,building,sky,bridge,train,subway,capital,urban,high-rise,architecture,town,metropolis,office-buildings,metropolis,condo,housing,apartments&latitude=${ lat }&longitude=${ lon }`
+      
+    } else {
+      url = `https://api.unsplash.com/photos/random/?client_id=${appid}&query=${city}&count=1&collections=flag,building,sky,bridge,train,subway,capital,urban,high-rise,architecture,town,metropolis,office-buildings,metropolis,condo,housing,apartments`
+
+    }
     
     try {
-      
-    const url = `https://api.unsplash.com/photos/random/?client_id=${appid}&query=${cityName}&count=1&collections=flag,building,sky,bridge,train,subway,capital,urban,high-rise,architecture,town,metropolis,office-buildings,metropolis,condo,housing,apartments`
     
     let response = await fetch(url, options)
         .then((response) => {
@@ -27,14 +37,13 @@ const getImage = async (cityname) =>  {
           console.error(error);
         });
     
-        let data = await response
+        let data = await response[0].urls.small
 
-        return data 
+        return data
 
     } catch(error) {
       console.error('There was an error fetching the data:', error)
     }
-      
   }
   
   export default getImage;

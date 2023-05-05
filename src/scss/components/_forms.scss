@@ -4,20 +4,34 @@
 @use "../utils/mixins" as m;
 
 .form {
-    margin-bottom: 8px;
-    padding: 2px 8px;
+    width: 420px;
+    height: 100%;
+    
+    padding: 5px 30px 5px 15px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-}
-
-.input {
-    width: 100%;
-    height: 35px;
-    padding: 8px 10px;
+    gap: 5px;
+    background-color: f.getColor('input-bg-color');
+    border-radius: f.getProperty('border-radius');
 
     &-label {
         width: 100%;
+        height: 100%;
+    }
+
+    &__btn {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+    }
+
+    &__input {
+        width: 100%;
+        height: 100%;
+        padding: 8px 10px;
+        font-size: 1rem;
     }
 }

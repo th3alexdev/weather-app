@@ -8,8 +8,10 @@
 
     &--weather {
         position: absolute;
-        right: 22px;
-        width: 210px;
+        top: 50%;
+        right: 8px;
+        width: 261px;
+        transform: translateY(-50%);
     }
 
     &--location {

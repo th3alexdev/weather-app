@@ -4,30 +4,48 @@
 @use "../utils/mixins" as m;
 
 .header {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    padding: 10px 12px;
-    font-family: f.getProperty('titles-font');
-    display: flex;
-    justify-content: space-between;
+    padding: 40px 84px 15px 84px;
+    display: grid;
+    place-items: center;
+    
+    &-container {
+        width: 100%;
+        max-width: 1350px;
+        height: 65px;
+        padding: 10px 12px;
+        display: flex;
+        justify-content: space-between;
+    }
 
-    outline: 1px solid #000;
+    font-family: f.getProperty('titles-font');
+    background-color: f.getColor('header-bg-color');
+
 
     &__btns {
         display: flex;
-        gap: 7px;
+        gap: 18px;
         width: max-content;
+        font-family: f.getFont('titles-font');
     }
 
     &__greeting {
         display: flex;
         gap: 12px;
-
-        // background-color: rgba($color: #0f0, $alpha: 0.3);
     }
+
+    &::before {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 500px;
+        background-color: red;
+    }
+
 
     &-text-principal {
         font-weight: 700;

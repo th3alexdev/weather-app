@@ -1,0 +1,51 @@
+@use "../utils/variables" as v;
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+
+.section-layout {
+    position: relative;
+    flex-shrink: 1;
+    border-radius: f.getProperty('border-radius');
+}
+
+.section-container {
+    position: relative;
+    width:  100%;
+    height: 100%;
+    padding: 5px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    &--search {
+        justify-content: flex-end;
+        padding: 25px 12px;
+        background-color: f.getColor('bg-card');
+
+    }
+
+    //     // &::before {
+    //     //     content: '';
+    //     //     z-index: 0;
+    //     //     position: absolute;
+    //     //     top: 0;
+    //     //     left: -95px;
+    //     //     width: 50%;
+    //     //     height: 100%;
+    //     //     background-color: f.getColor('bg-card');
+    //     // }
+    // }
+
+    &--today-highlight {
+        padding: f.getProperty('padding');
+        border-radius: f.getProperty('border-radius');
+        background-color: f.getColor('bg-card');
+    }
+
+    &--today-forecast {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

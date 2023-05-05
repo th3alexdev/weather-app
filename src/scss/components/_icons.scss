@@ -1,3 +1,51 @@
 @use "../utils/variables" as v;
 @use "../utils/functions" as f;
 @use "../utils/mixins" as m;
+
+.icon {
+    -webkit-user-drag: none;
+    transition: background-color .3s;
+
+
+    &--form {
+        width: 35px;
+        height: 32px;
+        padding: 5px;
+        border-radius: 50%;
+        background-color: f.getColor('bg-card');
+
+        &:hover {
+            background-color: #eaeaea;
+        }
+    }
+
+    &--header {
+        width: 15px;
+    }
+}
+
+.icon-card { 
+    width: 35px;
+}
+
+.icon-time-box {
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    background-color: #FFD200;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 8px 0px rgba(255,255,0,1);
+
+    display: grid;
+    place-items: center;
+}
+
+.icon-time {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+
+    &--sunset {
+        transform: rotate(180deg);
+    }
+}

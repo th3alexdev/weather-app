@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "../../Card/Card";
 
 function Section({ title, className, children}) {
   return (

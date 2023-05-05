@@ -4,20 +4,30 @@ $theme-default: (
     'bg-card': #fff,
     'yellow-contrast': #ffde4a,
     'blue-contrast': #4050d2,
+    'violet-contrast': #b5a2e4,
 
     /* text */
     'text-color': #222,
     'text-color-contrast': #fff,
 
+    /* inputs */
+    'input-bg-color': #fff,
+
+    /* header */
+    'header-bg-color': #e2e2e2,
+
     /* developer's info card */
     'dev-card__bg-color': #dff297,
-    'dev-card__text': #303656
-);
+    'dev-card__text': #303656,
+
+    /* others */
+    'gray': #444
+    );
 
 $properties: (
     "opacity": opacity(45%),
     "padding": 25px 20px,
-    "border-radius": 20px
+    "border-radius": 25px
 );
 
 

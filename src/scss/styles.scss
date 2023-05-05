@@ -4,22 +4,24 @@
 // @use "../utils/mixins" as m;
 
     /* base */
-    @forward 'base/base.scss';
-    @forward 'base/typography.scss';
+    @forward 'base/base';
+    @forward 'base/typography';
 
     /* components */
-    @forward 'components/btns.scss';
-    @forward 'components/cards.scss';
-    @forward 'components/forms.scss';
-    @forward 'components/icons.scss';
-    @forward 'components/img.scss';
-    @forward 'components/links.scss';
-    @forward 'components/shapes.scss';
+    @forward 'components/btns';
+    @forward 'components/cards';
+    @forward 'components/forms';
+    @forward 'components/icons';
+    @forward 'components/img';
+    @forward 'components/links';
+    @forward 'components/shapes';
+    @forward 'components/sections';
+    @forward 'components/loader';
+    @forward 'components/empty';
 
     /* layout */
-    @forward 'layout/header.scss';
-    @forward 'layout/main.scss';
-    @forward 'layout/sections.scss';
+    @forward 'layout/header';
+    @forward 'layout/main';
 
     @forward 'layout/Section/extra';
     @forward 'layout/Section/search';

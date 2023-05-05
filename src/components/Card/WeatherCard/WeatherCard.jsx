@@ -1,16 +1,16 @@
 import React from 'react'
 
-import img from "../../../assets/icons/weather/clear-night.png";
 
-function WeatherCard() {
+function WeatherCard({ data }) {
+
   return (
     <div className="section-container">  
 
-        <h2 className="title subtitle">Weather</h2>
+        <h2 className="title card-title">Weather</h2>
 
-        <div>
+        <div className="weather__properties">
           <p className="text text--degrees">12 
-            <span className="degrees">ºC</span> 
+            <span className="degrees degrees--main">ºC</span> 
           </p>
           <p className="text text--w-info">Mostly Cloudy</p>
           <p className="text text--w-info">Rain - 30%</p>

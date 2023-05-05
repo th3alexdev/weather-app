@@ -3,31 +3,39 @@
 @use "../utils/mixins" as m;
 
 .main {
+    position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 115px);
 
-    padding: 45px 55px;
+    padding: 0px 55px 0 55px;
     background-color: f.getColor('bg-color');
     display: grid;
-    place-items: center;
+    justify-items: center;
 }
 
-.main-container {
+.principal {
+    width: 95%;
+    height: 90%;
     position: relative;
-    padding-top: 65px;
+    padding-top: 10px;
     max-width: 1350px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     gap: 25px;
-
-    outline: 1px solid #000;
 }
+
+.main-centered {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
 
 .secondary-container {
     width: 100%;
-
     flex-basis:  57.6%;
     flex-shrink: 0;
     flex-grow: 1;

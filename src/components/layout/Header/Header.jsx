@@ -1,25 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function Header({ className }) {
+
+function Header({ children }) {
   return (
 
-    <header className= { className }>
+    <header className="header">
+      <div className="header-container">
 
-      <div className="header__greeting">
-      
-        <h1 class="header-text-principal">Hello,</h1>
-        
-        <div className="name-container">
-            <div className="greeting">
-              <h2 id="name" spellCheck="false" contentEditable="false" className="header-text-secondary">Stranger</h2>
-            </div>
+        <h1 className="header-text-principal">Weather.io</h1>
+
+        { children[0] }
+
+        <div className="header__btns">
+          { children[1] }
+          { children[2] }
         </div>
-
-      </div>
-
-      <div className="header__btns">
-        <button className="btn btn--header">F</button>
-        <button className="btn btn--header">C</button>
       </div>
     </header>
 
@@ -27,3 +22,20 @@ function Header({ className }) {
 }
 
 export default Header
+
+
+{/* <div className="header__greeting">
+        
+<h1 className="header-text-principal">Hello,</h1>
+<div className="name-container">
+    <div className="greeting">
+      <h2 
+        id="name" spellCheck="false" 
+        className="header-text-secondary"
+        >
+          Stranger
+      </h2>
+    </div>
+</div>
+
+</div> */}

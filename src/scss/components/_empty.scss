@@ -1,0 +1,26 @@
+@use "../utils/variables" as v;
+@use "../utils/functions" as f;
+@use "../utils/mixins" as m;
+@use "../utils/extends" as *;
+
+.empty-container {
+    width: max-content;
+    display: grid;
+    place-items: center;
+    gap: 25px;
+}
+
+.empty{
+    
+    &__img {
+        width: 130px;
+        filter: brightness(0%) contrast(-50%);
+    }
+
+    &__text {
+        font-family: f.getFont('titles-font');
+        font-weight: 800;
+        font-size: 2.1rem;
+        color: f.getColor('gray')
+    }
+}

@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     flex-wrap: nowrap;
-
+    
     &--search {
         justify-content: flex-end;
         padding: 25px 12px;
@@ -47,5 +47,37 @@
     &--today-forecast {
         padding-left: 0;
         padding-right: 0;
+
+        overflow-x: auto;
+        width: inherit;
+    }
+}
+
+.section-container--today-forecast {
+    @media (min-width: 1070px) and (max-width: 1180px) {
+        padding-bottom: 10px;
+        
+        &::-webkit-scrollbar {
+            height: 5px;
+            padding-left: 95px;
+            margin-left: 15px;
+
+        }
+        
+        &::-webkit-scrollbar-track {
+            background-color: #cbcbcb;
+            border-left: 55px solid #cbcbcb;
+            border-right: 55px solid #cbcbcb;
+            border-radius: 10px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: #838383;
+            outline: 2px solid #838383;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-button {
+            background-color: f.getColor('bg-color');
+        }
     }
 }

@@ -11,30 +11,63 @@
     padding: 40px 84px 15px 84px;
     display: grid;
     place-items: center;
-    
-    &-container {
-        width: 100%;
-        max-width: 1350px;
-        height: 65px;
-        padding: 10px 12px;
-        display: flex;
-        justify-content: space-between;
-    }
+
 
     font-family: f.getProperty('titles-font');
     background-color: f.getColor('header-bg-color');
 
+    @media (max-width: 1050px) {
+        padding: 40px 34px 15px 34px;
+    }
+
+
+    &-container {
+        width: 100%;
+        max-width: 1255px;
+        height: 65px;
+        padding: 10px 12px;
+        display: flex;
+        justify-content: space-between;
+
+        @media (min-width: 580px) and (max-width: 1050px) {
+            height: 116px;
+            display: grid;
+            grid-template-rows: 50px 41px;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            row-gap: 15px;
+        }
+
+        @media (max-width: 579px) {
+            height: 175px;
+            display: grid;
+            grid-template-rows: 50px 50px 41px;
+            grid-template-columns: 1fr;
+            align-items: center;
+            row-gap: 12px;
+        }
+    }
+
+
 
     &__btns {
+        height: 45px;
+
         display: flex;
         gap: 18px;
         width: max-content;
         font-family: f.getFont('titles-font');
-    }
 
-    &__greeting {
-        display: flex;
-        gap: 12px;
+        @media (min-width: 580px) and (max-width: 1050px) {
+            grid-row: 1/2;
+            grid-column: 2/3;
+            justify-self: center;
+        }
+
+        @media (max-width: 579px) {
+            grid-row: 2/3;
+            justify-self: center;
+        }                          
     }
 
     &::before {
@@ -49,6 +82,11 @@
 
     &-text-principal {
         font-weight: 700;
+
+        @media (min-width: 580px) and (max-width: 1050px) {
+            width: max-content;
+            justify-self: center;
+        }
     }
 
     &-text-secondary {
@@ -63,17 +101,17 @@
     width: max-content;
 }
 
-.greeting {
-    position: relative;
+// .greeting {
+//     position: relative;
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: -50px;
-        width: 40px;
-        height: 40px;
-        background: url('/src/assets/img/waving-hand-emoji.png');
-        background-size: contain;
-    }
-}
+//     &::after {
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         right: -50px;
+//         width: 40px;
+//         height: 40px;
+//         background: url('/src/assets/img/waving-hand-emoji.png');
+//         background-size: contain;
+//     }
+// }

@@ -9,9 +9,19 @@
     &--weather {
         position: absolute;
         top: 50%;
-        right: 8px;
+        right: 25px;
         width: 261px;
         transform: translateY(-50%);
+
+        @media (max-width: 615px) {
+            top: -127px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 455px) {
+            width: 225px;
+        }
     }
 
     &--location {
@@ -19,6 +29,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 100%;
+        
     }
 
     &--dev {
@@ -26,5 +38,10 @@
         top: 20px;
         right: -25px;
         width: 60px;
+
+        @media (max-width: 620px) {
+            right: 15px;
+            width: 95px;
+        }
     }
 }

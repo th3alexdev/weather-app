@@ -5,25 +5,35 @@
 
 .weather {
     z-index: 10;
-    width: 60%;
-    max-width: 754.38px;
+    width: 100%;
+    flex-basis: 59%;
     height: 280px;
 
     padding: f.getProperty('padding');
     color: f.getColor('text-color-contrast');
 
-
     border-radius: f.getProperty('border-radius');
 
     &__properties {
         width: max-content;
+
+        @media (max-width: 615px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     background: rgb(57,200,245);
     background: linear-gradient(45deg, rgba(57,200,245,1) 0%, rgba(47,144,243,1) 47%);
 
-    // &--night{
-    //     background: #191970;
-    //     background: linear-gradient(45deg,  #191970 0%, #4B0082 47%);
-    // }
+    @media (max-width: 1070px) {
+        flex-basis: 100%;
+    }
+
+    @media (max-width: 615px) {
+        height: 300px;
+    }
 }

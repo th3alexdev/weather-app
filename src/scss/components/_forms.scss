@@ -16,6 +16,23 @@
     background-color: f.getColor('input-bg-color');
     border-radius: f.getProperty('border-radius');
 
+    @media (min-width: 580px) and (max-width: 1050px) {
+        grid-row: 2/3;
+        grid-column: 1/3;
+    }
+
+    @media (max-width: 1050px) {
+        justify-self: center;
+    }
+
+    @media (max-width: 579px) {
+        grid-row: 3/4;
+    }                          
+
+    @media (max-width: 500px) {
+        width: 85%;
+    }
+
     &-label {
         width: 100%;
         height: 100%;

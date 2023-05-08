@@ -7,6 +7,10 @@
     height: 1px;
     background-color: f.getColor('bg-color');
     margin-bottom: 10px;
+
+    @media (max-width: 1070px) {
+        display: none;
+    }
 }
 
 $dev-card-text: map-get(v.$theme-default, dev-card__text);

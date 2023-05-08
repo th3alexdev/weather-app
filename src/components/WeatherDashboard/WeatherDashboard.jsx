@@ -13,9 +13,10 @@ import {
 
 import converTo from "../../utils/convertDegrees"
 import setNextDays from '../../utils/nextDays'
+import { convertUnixTimeStamp } from '../../utils/convertUnixTimestamp'
 
 function WeatherDashboard({ weather, showData, loadingData, degreeType, unsplashImg, forecast}) {
-  let description, weatherIcon, weatherUrl, nextDays;
+  let description, weatherIcon, weatherUrl, nextDays, fulldate;
 
   if(showData) {
     description = weather.weather[0].description.split(" ");
@@ -26,14 +27,17 @@ function WeatherDashboard({ weather, showData, loadingData, degreeType, unsplash
     weatherUrl = `../../../public/weather/${weatherIcon}.png`
 
     nextDays = setNextDays()
+
     console.log(weather)
-    console.log(forecast)
+
+    fulldate = convertUnixTimeStamp(weather.dt, weather.timezone)
   }
 
   return (
     <>
+      {/* <main className={ showData ? "main" : "main main--home-page" }> */}
       <main className="main">
-        <div className="principal">
+        <div className={ showData ? "principal principal--not-empty" : "principal"}>
 
           { loadingData && <Loader/> }
 
@@ -41,15 +45,14 @@ function WeatherDashboard({ weather, showData, loadingData, degreeType, unsplash
             showData ? (
               <>
                 <Section className="weather section-layout">
-                  <Card subtitle="Weather">
+                  <img className="img img--weather" src={ showData && weatherUrl  } alt={ showData && weather.weather[0]}/>
+                  <Card subtitle="Weather" extra="section-container--weather">
                     <div className="weather__properties">
                       <p className="text text--degrees"> { converTo(weather.main.temp, degreeType) }
                         <span className="degrees degrees--main">{ degreeType == "celsius" ? "ºC" : "ºF" }</span> 
                       </p>
                       <p className="text text--w-info"> { showData && description} </p>
                       <p className="text text--w-info">{`Rain -  ${Math.round(forecast.list[0].pop * 100) }%`}</p>
-
-                      <img className="img img--weather" src={ showData && weatherUrl  } alt={ showData && weather.weather[0]}/>
                     </div>
                   </Card>
                   
@@ -57,7 +60,19 @@ function WeatherDashboard({ weather, showData, loadingData, degreeType, unsplash
     
                 <Section className="search section-layout">
                   <Card extra="section-container--search">
-                      <hr />
+                      <div className="search-date">
+                        <div className="search-date-container">
+                          <img src="../../../src/assets/icons/schedule.svg" alt="" className="icon" />
+                          <p className="search-date__main-text">{`${fulldate.weekDay},`} </p>
+                          <p className="search-date__secondary-text">{`${fulldate.time}:${fulldate.minutes} `} </p>
+                        </div>
+                        <div className="search-date-container">
+                          <img src="../../../src/assets/icons/calendar-month.svg" alt="" className="icon" />
+                          <p className="search-date__main-text">{`${fulldate.month} ${fulldate.day}${fulldate.susffix},`} </p>
+                          <p className="search-date__secondary-text">{`${fulldate.year}`} </p>
+                        </div>
+                      </div>
+                      <hr className="hr"/>
                       <div className="search-location">
                         <p className="text search-location__text">{`${weather.name}, ${weather.sys.country}`}</p>
                         <div className="search-location__shadow"></div>

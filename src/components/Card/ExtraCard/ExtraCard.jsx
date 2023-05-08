@@ -1,5 +1,5 @@
 import React from 'react'
-import getSunriseAndSunset from '../../../utils/convertUnixTimestamp';
+import { getSunriseAndSunset } from '../../../utils/convertUnixTimestamp';
 
 import windIcon from "../../../assets/icons/wind-solid.svg"
 

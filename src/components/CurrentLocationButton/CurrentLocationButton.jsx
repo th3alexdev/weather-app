@@ -20,7 +20,7 @@ function CurrentLocationButton({ getPosition, position, setPosition  }) {
     >
       <img src="../../../src/assets/icons/current-location.svg"
        alt="Current Location"
-       className="icon icon--header"
+       className="icon"
       /> Current Location
     </button>
   )

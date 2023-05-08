@@ -4,9 +4,19 @@
 @use "../../utils/mixins" as m;
 
 .today-highlight {
-    width: 40%;
+    width: 100%;
+    flex-basis: 39.9%;
     max-width: 450px;
     padding-top: 20px;
     flex-shrink: 1;
     color: f.getColor('text-color-contrast');
+
+    @media (min-width: 536px) and (max-width: 1070px) {
+        max-width: none;
+        flex-basis: 100%;
+    }
+
+    @media (max-width: 535px) {
+        flex-basis: 100%;
+    }
 }

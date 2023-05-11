@@ -1,20 +1,17 @@
 
 const convertTo = (deg, type) => {
-    // console.log(deg)
-    // console.log(type)
+    let result;
 
     if(type == "celsius") {
-        let celsius = (deg - 273.15);
-    
-        return Math.round(celsius);
+        // Convert from Kelvin to Celsius
+        result = (deg - 273.15);
     
     } else { 
-        let fahrenheit = (deg - 273.15) * 9/5 + 32;
-    
-        return Math.round(fahrenheit);
+        // Convert from Kelvin to Fahrenheit
+        result = (deg - 273.15) * 9/5 + 32;
 
     }
-
+    return Math.round(result);
 }
 
 export default convertTo 

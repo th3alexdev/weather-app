@@ -1,6 +1,7 @@
 const API_KEY = import.meta.env.VITE_API_KEY_UNSPLASH;
 
-const getImage = async (city, coords = null) =>  {
+/* Retrieves a random photo from Unsplash based on the user's current location or a search query for a city */
+const getImage = async (city, coords = null) =>  { 
   
     const appid = API_KEY
     const options = {
@@ -13,36 +14,38 @@ const getImage = async (city, coords = null) =>  {
 
     let url;
 
+    // If coordinates are provided, use those to search for a photo on Unsplash
     if(coords) {
-      let lat = coords.lat;
-      let lon = coords.log;
+      const { lat, lon } = coords;
       url = `https://api.unsplash.com/photos/random/?client_id=${appid}&count=1&collections=flag,building,sky,bridge,train,subway,capital,urban,high-rise,architecture,town,metropolis,office-buildings,metropolis,condo,housing,apartments&latitude=${ lat }&longitude=${ lon }`
       
+    
+    // Otherwise, use the provided city to search for a photo on Unsplash
     } else {
-      url = `https://api.unsplash.com/photos/random/?client_id=${appid}&query=${city}&count=1&collections=flag,building,sky,bridge,train,subway,capital,urban,high-rise,architecture,town,metropolis,office-buildings,metropolis,condo,housing,apartments`
+      url = `https://api.unsplash.com/photos/random/?client_id=${ appid }&query=${ city }&count=1&collections=flag,building,sky,bridge,train,subway,capital,urban,high-rise,architecture,town,metropolis,office-buildings,metropolis,condo,housing,apartments`
 
     }
     
     try {
-    
-    let response = await fetch(url, options)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Error request HTTP");
-          }
-        }) 
-        .catch((error) => {
-          console.error(error);
-        });
-    
-        let data = await response[0].urls.small
 
-        return data
+      // Make the request to the Unsplash API using the provided URL and options
+      const response = await fetch(url, options)
+      let data = await response.json()
+      // console.log(data)
+
+      // If the response is not OK, throw an error with the data
+      if (!response.ok) {
+          const error = data;
+          throw error
+      }
+      
+      // Return the URL of the first image in the response data
+      return data[0].urls.small
 
     } catch(error) {
-      console.error('There was an error fetching the data:', error)
+      // Throw an error if there was an issue with the request
+      throw error;
+
     }
   }
   

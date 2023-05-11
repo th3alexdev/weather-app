@@ -139,11 +139,7 @@ function WeatherDashboard({ weather, showData, loadingData, degreeType, unsplash
                           <div key={key} className="fc-card" role="listitem" aria-label={`Forecast for ${nextDays[key].long}`}>
                             <h2 className="title fc-card__title">{ nextDays[key].short }</h2> 
                             <img 
-<<<<<<< Updated upstream
                               src={`/weather-app/weather/${card.weather[0].icon}.png`}
-=======
-                              src={`/weather/${card.weather[0].icon}.png`}
->>>>>>> Stashed changes
                               className="img fc-card__img"
                               alt={`Icon for ${card.weather[0].description}`}
                             />

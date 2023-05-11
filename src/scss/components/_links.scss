@@ -3,6 +3,9 @@
 @use "../utils/mixins" as m;
 
 .link {
+    &-repo {
+        transition: text-decoration 3s;
+    }
 
     &--dev {
         z-index: 50;
@@ -10,4 +13,14 @@
         color: inherit;
         
     }
+}
+
+
+.link-repo, 
+.link-repo:visited {
+    color: inherit;
+}
+
+.link-repo:hover {
+    text-decoration: underline;
 }

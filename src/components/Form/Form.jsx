@@ -1,50 +1,42 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
-import searchIcon from "../../assets/icons/search.svg"
-import myLocation from "../../assets/icons/shuffle.svg"
-
-const Form = ({ newLocation }) => {
-    const [city, setCity] = useState("") // Setea la ciudad que ingrese el usuario
+import magnifyingGlassIcon from "../../../src/assets/icons/search.svg"
 
 
-    const submitHandler = (e) => {
-      e.preventDefault()
-      if(city === "" || !city) return
+const Form = ({ newLocation, city, setCity }) => {
 
-      newLocation(city)
-    }
+  const submitHandler = (e) => {
+    e.preventDefault()
+    if(city === "" || !city) return
 
-    return (
-      <form className="form" onSubmit={ submitHandler }>
-            <button className="form__btn" title="Search city">
-              <img 
-              src={ searchIcon }
-              className="btn icon--form"
-              alt="Magnifying glass icon to search for cities on the weather map" 
-              type="submit"
-              />
-            </button>
+    newLocation(city)
+  }
 
-            <label htmlFor="city" className='form-label'>
-              <input 
-                className="form__input"
-                type="text"
-                htmlFor="city" 
-                placeholder='Search city...'
-                autoComplete="none"
-                onChange={(e) => {
-                  setCity(e.target.value)
-                }}
-              />
-            </label>
+  return (
+    <form className="form" onSubmit={ submitHandler } role="search">
+      <button className="form__btn" title="Search city" type="submit">
+        <img 
+        src={ magnifyingGlassIcon }
+        className="btn icon--form"
+        alt="Magnifying glass icon to search for cities on the weather map" 
+        />
+      </button>
 
-            {/* <button className="form__btn" type="submit">
-              <img src={ myLocation } className="icon icon--form" alt="Current location icon to find the weather in your city" />
-            </button> */}
-            
-
-      </form>
-    )
+      <label htmlFor="city" className='form-label'>
+        <input 
+          className="form__input"
+          type="text"
+          id="city" 
+          placeholder='Search city...'
+          autoComplete="on"
+          aria-label="Search city"
+          onChange={(e) => {
+            setCity(e.target.value)
+          }}
+        />
+      </label>
+    </form>
+  )
 }
 
 export default Form;

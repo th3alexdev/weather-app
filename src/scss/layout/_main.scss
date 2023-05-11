@@ -6,8 +6,19 @@
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - 120px);
-    
+
+    @media (min-width: 1051px) {
+        min-height: calc(100vh - 120px);
+    }
+
+    @media (min-width: 580px) and (max-width: 1050px) {
+        min-height: calc(100vh - 171px);
+    }   
+
+    @media(max-width: 579px) {
+        min-height: calc(100vh - 230px);
+    }
+        
     padding: 0px 55px 25px 55px;
 
     background-color: f.getColor('bg-color');

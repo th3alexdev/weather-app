@@ -1,8 +1,8 @@
 {
-  "name": "weather-app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "th3-weather-app",
+  "version": "1.0.0",
   "type": "module",
+  "description": "React Weather App built by Alexander Pérez",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,6 +19,9 @@
     "react-toastify": "^9.1.2",
     "sass": "^1.61.0"
   },
+  "keywords": ["Weather", "Weather App", "React Weather App", "Vitejs"],
+  "author": "Alexander Pérez",
+  "license": "ISC",
   "devDependencies": {
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",

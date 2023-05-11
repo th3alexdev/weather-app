@@ -1,13 +1,11 @@
-import React, {useState} from 'react'
-
+import React from 'react'
 
 function Header({ children }) {
   return (
-
-    <header className="header">
+    <header className="header" role="banner">
       <div className="header-container">
 
-        <h1 className="header-text-principal">Weather.io</h1>
+        <h1 className="header-text-principal">WeatherApp</h1>
 
         { children[0] }
 
@@ -17,25 +15,7 @@ function Header({ children }) {
         </div>
       </div>
     </header>
-
-)
+  )
 }
 
-export default Header
-
-
-{/* <div className="header__greeting">
-        
-<h1 className="header-text-principal">Hello,</h1>
-<div className="name-container">
-    <div className="greeting">
-      <h2 
-        id="name" spellCheck="false" 
-        className="header-text-secondary"
-        >
-          Stranger
-      </h2>
-    </div>
-</div>
-
-</div> */}
+export default Header;

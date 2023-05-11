@@ -30,7 +30,7 @@
     }                          
 
     @media (max-width: 500px) {
-        width: 85%;
+        width: 100%;
     }
 
     &-label {
@@ -50,5 +50,10 @@
         height: 100%;
         padding: 8px 10px;
         font-size: 1rem;
+
+        &:focus {
+            outline: 1px solid #222;
+            border-radius: 2px;
+        }
     }
 }

@@ -1,10 +1,10 @@
 {
-    "name": "Weather App 🌞",
-    "short_name": "The Weather",
-    "description": "A weather app built with React that uses API requests to deliver accurate and up-to-date forecasts.",
-    
-    "start_url": "/",
-    "background_color": "#ffffff",
-    "theme_color": "#008080"
-  }
+  "name": "Weather App 🌞",
+  "short_name": "The Weather",
+  "description": "A weather app built with React that uses API requests to deliver accurate and up-to-date forecasts.",
+  
+  "start_url": "https://th3alexdev.github.io/weather-app/",
+  "background_color": "#ffffff",
+  "theme_color": "#008080"
+}
   

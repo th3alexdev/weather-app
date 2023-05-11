@@ -12,6 +12,7 @@
     "build-sass": "npm run sass && npm run postcss && npm run build"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-toastify": "^9.1.2",

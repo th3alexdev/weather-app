@@ -15,10 +15,14 @@ function DegreeButton({ degreeType, setDegreeType }) {
   }
 
   return (
-    <button className="btn btn-header btn-header--small" data-deg={ degreeType == "celsius" ? "celsius" : "fahrenheit" }
-    onClick={(e) => clickHandler(e)}
-    title={`Set degrees ${degreeType == "celsius" ? "celsius" : "fahrenheit"}`}
-    > {
+    <button 
+      className="btn btn-header btn-header--small" 
+      data-deg={ degreeType == "celsius" ? "celsius" : "fahrenheit" }
+      onClick={(e) => clickHandler(e)}
+      title={`Set degrees ${degreeType == "celsius" ? "celsius" : "fahrenheit"}`}
+      aria-label={`Set degrees ${degreeType === "celsius" ? "celsius" : "fahrenheit"}`}
+    > 
+    {
       degreeType == "celsius" ? "ºC" : "ºF"
     }
     </button>

@@ -1,23 +1,28 @@
 
+// Convert the Unix timestamp to a JavaScript date object
 export const getSunriseAndSunset = (dt) => {
     let unixDate = new Date(dt * 1000);
+
+    // Define options for formatting the time
     let options = { hour: '2-digit', minute: '2-digit', hour12: false };
+
+    // Format the Unix time to a readable time string
     let unixTime = unixDate.toLocaleTimeString('en-US', options);
     
-    // Retornamos los valores de sunrise y sunset en formato de hora legible
+    // Return the sunrise or sunset time in a readable format
     return unixTime;
   }
 
 
-
 export const convertUnixTimeStamp = (dt, timezone) => {
-    const date = new Date(dt * 1000);
-    date.setSeconds(date.getSeconds() + (timezone));
+    const date = new Date(dt * 1000);   // Convert the Unix timestamp to a JavaScript date object
+    date.setSeconds(date.getSeconds() + (timezone)); 
 
     let susffix = "";
     let day = Number(date.toLocaleString("en", {timeZone: "UTC", day: 'numeric'}));
-
-    if (day > 3 && day < 21) susffix = 'th';
+    
+    /* Determine the correct suffix for the day (e.g., 1st, 2nd, 3rd) */
+    if (day > 3 && day < 21) susffix = 'th'; 
     else {
         switch (day % 10) {
             case 1: susffix = 'st'; break;
@@ -27,6 +32,7 @@ export const convertUnixTimeStamp = (dt, timezone) => {
         }
     }
 
+    /* Construct an object with the full date and time information */
     const fulldate = {
         day,
         susffix,

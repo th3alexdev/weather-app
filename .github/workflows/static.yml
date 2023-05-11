@@ -49,3 +49,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        env:
+          REACT_APP_API_KEY_OPENWEATHERMAP: ${{ secrets.VITE_API_KEY_OPENWEATHERMAP }}
+          REACT_APP_API_KEY_UNSPLASH: ${{ secrets.VITE_API_KEY_UNSPLASH }}

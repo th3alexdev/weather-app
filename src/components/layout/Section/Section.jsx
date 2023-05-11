@@ -1,8 +1,8 @@
 import React from "react";
 
-function Section({ title, className, children}) {
+function Section({ title, className, aria, children}) {
   return (
-    <section className={ className }>
+    <section className={ className } aria-label={ aria }>
       {
         title ? <h1 className="title title--principal">{ title }</h1> : null
       }
@@ -14,23 +14,3 @@ function Section({ title, className, children}) {
 }
 
 export default Section;
-
-// <div className="cards-container">
-// 
-// <Card title="Visibility"
-//       info={`5.2`}
-//       className="card" />
-// 
-// <Card title="Humadity"
-//       info="87"
-//       className="card" />
-// 
-// <Card title="Real Feel"
-//       info="29"
-//       className="card" />
-// 
-// <Card title="UV Index"
-//       info="3"
-//       className="card" />
-// 
-// </div>

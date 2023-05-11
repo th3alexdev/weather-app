@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "sass": "sass src/scss/styles.scss src/css/styles.css --no-source-map",
     "postcss": "postcss src/css/styles.css -o src/css/styles-prefix.css --no-map",
-    "build-sass": "npm run sass && npm run postcss && npm run build"
+    "build-sass": "npm run sass && npm run postcss && npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^5.0.0",

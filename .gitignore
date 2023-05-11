@@ -3,7 +3,7 @@ node_modules/
 .env.production
 notes.txt
 .vscode
-src/css/
+src/css/styles.css
 
 # Logs
 logs

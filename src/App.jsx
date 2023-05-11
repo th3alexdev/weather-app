@@ -1,99 +1,136 @@
+/* Import necessary dependencies */
 import React, { useState, useEffect } from 'react';
-import "./scss/styles.scss"
+import { ToastContainer, toast } from 'react-toastify'; // Notification library
+import 'react-toastify/dist/ReactToastify.css'; // Notification styles
+
+import "./css/styles-prefix.css"; // Importing custom 
+
 import {
           Form,
           Header, 
           WeatherDashboard,
           DegreeButton,
           CurrentLocationButton
-        } from './index'
+        } from './index'; // Importing components
 
-import { getData, getForecast } from './utils/weatherAPI';
-import getImage from './utils/unspashAPI'
-import getPosition from './utils/geolocationAPI';
+import { getData, getForecast } from './utils/weatherAPI'; // Importing functions to fetch weather data
+import getImage from './utils/unspashAPI'; // Importing function to fetch background image
+import getPosition from './utils/geolocationAPI'; // Importing function to get user's geolocation
+import getErrorMessage from "./utils/getErrorMessage";
 
 function App() {
 
-  const [checking, setChecking] = useState(false)
-  const [weather, setWeather] = useState([]); // Información del clima obtenida
-  const [loading, setLoading] = useState(false); // Setear loader mientras carga información
-  const [show, setShow] = useState(false); // Para visualizar información
-  const [location, setLocation] = useState(""); // Para establecer la información
+  const [weather, setWeather] = useState([]); // Stores weather information
+  const [forecast, setForecast] = useState([]); // Stores weather forecast data
+  const [loading, setLoading] = useState(false); // Show loader while data is being fetched
+  const [show, setShow] = useState(false); // Show weather information
+  const [img, setImg] = useState(undefined); // Stores background image URL
+  const [degreeType, setDegreeType] = useState("celsius"); // Stores the type of temperature unit
+  const [position, setPosition] = useState(undefined); // Stores user's geolocation
+  const [showNotification, setShowNotification] = useState(false); // State hook for displaying toast notification
+  const [city, setCity] = useState("") // Setea la ciudad que ingrese el usuario
 
-  const [img, setImg] = useState("")
-
-  const [degreeType, setDegreeType] = useState("celsius")
-  
-  const [forecast, setForecast] = useState([])
-  const [position, setPosition] = useState("")
-
-  const getLocation = async (city, coords) => {
-    console.warn("api call")
-
-    setShow(false)
-    setLoading(true);
-    
-    setLocation(city);
-    
-    getImage(city, coords)
-    .then(res => {
-      
-      setImg(res)
-      console.log(res)
-      
-    }).catch(e => {
-      console.log(e)
-      setImg('uwu')
-    })
-
-    getData(city, coords)
-      .then(res => {
-        setWeather(res)
-
-        getForecast(city, coords)
-          .then(res => {
-            setForecast(res)
-            setLoading(false)
-            setShow(true)
-            console.log(forecast)
-          })
-      })
-      .catch(e => {
-        console.log(e)
-        setLoading(false)
-        setShow(false)
-    })
+  const notify = (message) => { // Function that is used to display a notification with an error message
+    setShowNotification(true);  // Show notification
+    toast.error(message, { // Use toast component to display error message
+      position: "bottom-right",
+      autoClose: 3500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      onClose: () => setShowNotification(false) // Set showNotification state to false when the notification is closed
+    });
   } 
 
-  useEffect(() => {
+  const getLocation = async (city, coords) => {
+
+      try {
+        if (loading) return;  // If loading, return early
+    
+        /* Hide any previous information and show loader */
+        setShow(false); 
+        setLoading(true);
+    
+        /* Make API calls to get weather data, image, and forecast data using Promise.all */
+        const [data, res, forecastData] = await Promise.all([
+          getData(city, coords).catch(error => {
+            throw new Error
+          }),
+          getImage(city, coords).catch((error) => {
+            // console.error(error);
+            
+            return "../src/assets/img/generic-image.jpg"; // If there is an error getting the image, 
+                                                          // return a default image instead
+          }),
+          getForecast(city, coords)
+        ]);
+    
+        /* Set state with received data */
+        setWeather(data);
+        setImg(res);
+        setForecast(forecastData);
+    
+        /* Hide loader and show weather information */
+        setLoading(false);
+        setShow(true);
+
+      } catch (error) {
+
+        /* If there is an error, handle it and show error notification */
+        // console.error(error);
+    
+        setShow(false);
+        setLoading(false);
+    
+        const errorMessage = getErrorMessage(error);
+    
+        if (!showNotification) {
+          notify(errorMessage);
+        }
+      }
+  }
+
+  useEffect(() => { // When the position state changes, fetch weather data for the new position
     if(position) {
       getPosition()
-      .then((coords) => {
-        getLocation(null, coords)
-
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-
+      .then(coords => {
+        getLocation(null, coords) // Get weather data based on the new position
+      }).catch(error => console.error(error))
     }
   }, [position]);
-
+  
   return (
     <>
+      <ToastContainer /> {/* Container for displaying notifications  */}
       <Header>
-          <Form newLocation={ getLocation }/>
+          {/* Form component for entering a new location */}
+          <Form 
+            newLocation={ getLocation }
+            city={ city }
+            setCity={ setCity }
+          />  
+
+          {/* Button for getting weather data based on current location */}
           <CurrentLocationButton
-          getPosition={ getPosition}
+            toast={toast}
+            getPosition={ getPosition}
             position={ position }
             setPosition={ setPosition }
-          />
+            setShowNotification={ setShowNotification }
+            showNotification={ showNotification }
+          /> 
+
+          {/* Button for toggling between Celsius and Fahrenheit */}
           <DegreeButton
             degreeType={ degreeType }
             setDegreeType={ setDegreeType }
           />
-      </Header>        
+      </Header>      
+
+      {/* Dashboard component for displaying weather information */}  
       <WeatherDashboard
         weather={ weather }
         forecast={ forecast }

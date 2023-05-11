@@ -15,17 +15,20 @@ Weather App is a simple web application built with React and Vite that allows us
 ## What I learned? 📚
 During the creation of this project, I acquired certain knowledge and skills:
 
-   - Created a user interface using React to effectively build interactive components and manage state.
-   - Integrated APIs into the web application to fetch weather and forecast data.
-   - Implemented error handling and notifications to enhance the user experience.
-   - How to improve development efficiency using Vite.js as a fast build tool 
+   - Create a UI using React to effectively build interactive components and manage state.
+   - Integrate optimized APIs calls into the web application for fast and efficient data retrieval.
+   - Use custom hooks to manage state and data fetching.
+   - Implemented error handling to provide a seamless user experience.
+   - Improved development efficiency using Vite.js as a fast build tool.
+   - Clean and responsive UI design with full accessibility support.
 
-## Dependencies 
+## Dependencies 📦
+
    - `react toastify` - library for displaying toast notifications in React applications.
    - `sass` - popular CSS preprocessor that enhances the styling capabilities of CSS.
    - `autoprefixer` - plugin for Sass that adds vendor prefixes to CSS rules automatically.
 
-## APIs Used 
+## APIs Used 🌐
 
  This project uses the following APIs:
 
@@ -42,7 +45,7 @@ In the future, the Weather App will include the following additions:
  - [ ] Map widget integration.
  - [ ] Autocomplete functionality for the search form.
 
-## Installation 
+## Installation 💻
 
 To run this application locally, you'll need to have Node.js and npm installed on your machine. Once you've cloned this repository, navigate to the project directory and run the following commands:
 
@@ -83,11 +86,11 @@ The Weather App supports both Fahrenheit and Celsius temperature units. You can 
 
 Enjoy using the Weather App and stay informed about the weather in your desired locations!
 
-## Contributions
+## Contributions 🎉
 
 I accept contributions in the form of bug fixes and code improvements. If you want to contribute, simply fork the repository, make your changes, and submit a pull request. 🤘
 
-## About the Creator
+## About the Creator 👨‍💻
 
 My name is Alexander Pérez and I am the creator of this app. I am a web developer with a passion for creating fun and interactive experiences for users. If you have any questions or suggestions about the app, please don't hesitate to contact me through my social networks:
 

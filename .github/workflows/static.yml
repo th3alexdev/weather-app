@@ -34,8 +34,8 @@ jobs:
     steps:
       - name: Use variables
         run: |
-        echo "VITE_API_KEY_OPENWEATHERMAP=${{ env.VITE_API_KEY_OPENWEATHERMAP }}"
-        echo "VITE_API_KEY_UNSPLASH=${{ env.VITE_API_KEY_UNSPLASH }}"
+          echo "VITE_API_KEY_OPENWEATHERMAP=${{ env.VITE_API_KEY_OPENWEATHERMAP }}"
+          echo "VITE_API_KEY_UNSPLASH=${{ env.VITE_API_KEY_UNSPLASH }}"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set up Node
